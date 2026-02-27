@@ -58,6 +58,18 @@ curl -X POST http://localhost:3002/api/contact \
   }'
 ```
 
+## AI Chatbot Setup
+
+1. Add AI environment variables in `.env.local`:
+
+```env
+OPENAI_API_KEY=your-openai-api-key
+OPENAI_CHAT_MODEL=gpt-4o-mini
+```
+
+2. Restart the dev server.
+3. Open the floating `Chat with AI Assistant` widget and test prompts.
+
 ## Vercel Deployment (Auto Deploy from GitHub)
 
 1. Go to Vercel and click `Add New...` -> `Project`.

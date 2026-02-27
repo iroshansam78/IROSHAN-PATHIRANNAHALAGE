@@ -15,69 +15,87 @@ const QUICK_PROMPTS = [
   "How can I contact him?"
 ];
 
-function getAssistantReply(input: string): string {
-  const text = input.toLowerCase();
-
-  if (text.includes("nemis") || text.includes("education")) {
-    return "He leads the national NEMIS rollout across 10,000+ schools, coordinating large-scale onboarding for teachers, students, and administrative officers with governance and readiness controls.";
-  }
-
-  if (text.includes("air force") || text.includes("defence") || text.includes("secure")) {
-    return "He has extensive enterprise IT and program leadership experience in secure and mission-critical environments, including command-level stakeholder coordination and governance-focused delivery.";
-  }
-
-  if (text.includes("ai") || text.includes("computer vision") || text.includes("gis") || text.includes("remote sensing")) {
-    return "His technical scope includes applied AI/computer vision, anomaly detection workflows, and GIS/remote sensing decision support integrated with operational delivery contexts.";
-  }
-
-  if (text.includes("sport") || text.includes("pentathlon")) {
-    return "As Vice President of the Sri Lanka Modern Pentathlon Federation, he supported national-level uplift and conduct of the National Pentathlon Challenge 2025.";
-  }
-
-  if (text.includes("contact") || text.includes("email") || text.includes("reach")) {
-    return "You can use the Contact section form on this website or connect via LinkedIn. Typical response time is within 1-2 business days.";
-  }
-
-  if (text.includes("experience") || text.includes("background")) {
-    return "He brings 15+ years of delivery leadership across government, defence, education, enterprise IT, AI, and geospatial systems.";
-  }
-
-  return "I can help with NEMIS delivery scope, defence/secure-context experience, AI/GIS capabilities, leadership roles, or contact details. Ask one of those and I will provide a focused summary.";
-}
-
 export function Chatbot() {
   const initialMessages = useMemo<ChatMessage[]>(
     () => [
       {
         id: 1,
         role: "assistant",
-        text: "Hello. I am Iroshan's site assistant. Ask about program delivery, NEMIS, secure IT leadership, AI/GIS expertise, or contact details."
+        text: "Hello. I am Iroshan's AI assistant. Ask about program delivery, NEMIS, secure IT leadership, AI/GIS expertise, or contact details."
       }
     ],
     []
   );
+
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [input, setInput] = useState("");
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  function sendMessage(text: string) {
+  async function sendMessage(text: string) {
     const trimmed = text.trim();
-    if (!trimmed) return;
+    if (!trimmed || loading) return;
 
-    setMessages((prev) => {
-      const nextId = prev.length + 1;
-      return [
-        ...prev,
-        { id: nextId, role: "user", text: trimmed },
-        { id: nextId + 1, role: "assistant", text: getAssistantReply(trimmed) }
-      ];
-    });
+    const userMessage: ChatMessage = {
+      id: messages.length + 1,
+      role: "user",
+      text: trimmed
+    };
+
+    const nextMessages = [...messages, userMessage];
+    setMessages(nextMessages);
     setInput("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          messages: nextMessages.map((item) => ({
+            role: item.role,
+            text: item.text
+          }))
+        })
+      });
+
+      const payload = (await response.json()) as {
+        reply?: string;
+        error?: string;
+      };
+
+      const assistantText =
+        payload.reply ??
+        payload.error ??
+        "I am unable to respond right now. Please try again.";
+
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: prev.length + 1,
+          role: "assistant",
+          text: assistantText
+        }
+      ]);
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        {
+          id: prev.length + 1,
+          role: "assistant",
+          text: "I am unable to connect right now. Please try again shortly."
+        }
+      ]);
+    } finally {
+      setLoading(false);
+    }
   }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    sendMessage(input);
+    void sendMessage(input);
   }
 
   return (
@@ -85,7 +103,7 @@ export function Chatbot() {
       {open ? (
         <div className="overflow-hidden rounded-2xl border border-brand-border bg-white shadow-card">
           <div className="flex items-center justify-between bg-brand-navy px-4 py-3 text-white">
-            <p className="text-sm font-semibold">Website Assistant</p>
+            <p className="text-sm font-semibold">AI Assistant</p>
             <button
               type="button"
               onClick={() => setOpen(false)}
@@ -116,8 +134,9 @@ export function Chatbot() {
                 <button
                   key={prompt}
                   type="button"
-                  onClick={() => sendMessage(prompt)}
-                  className="rounded-lg border border-brand-border px-2 py-1 text-xs text-brand-navy hover:bg-brand-mist"
+                  onClick={() => void sendMessage(prompt)}
+                  disabled={loading}
+                  className="rounded-lg border border-brand-border px-2 py-1 text-xs text-brand-navy hover:bg-brand-mist disabled:opacity-60"
                 >
                   {prompt}
                 </button>
@@ -129,12 +148,14 @@ export function Chatbot() {
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Type your question..."
                 className="w-full rounded-lg border border-brand-border px-3 py-2 text-sm outline-none focus:border-brand-teal"
+                disabled={loading}
               />
               <button
                 type="submit"
-                className="rounded-lg bg-brand-navy px-3 py-2 text-sm font-semibold text-white hover:bg-brand-steel"
+                disabled={loading}
+                className="rounded-lg bg-brand-navy px-3 py-2 text-sm font-semibold text-white hover:bg-brand-steel disabled:opacity-60"
               >
-                Send
+                {loading ? "..." : "Send"}
               </button>
             </form>
           </div>
@@ -145,7 +166,7 @@ export function Chatbot() {
           onClick={() => setOpen(true)}
           className="ml-auto block rounded-full bg-brand-navy px-5 py-3 text-sm font-semibold text-white shadow-card hover:bg-brand-steel"
         >
-          Chat with Assistant
+          Chat with AI Assistant
         </button>
       )}
     </div>
