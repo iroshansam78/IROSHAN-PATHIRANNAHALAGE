@@ -1,6 +1,5 @@
 import { CaseStudyCards } from "@/components/case-study-cards";
 import { Contact } from "@/components/contact";
-import { Education } from "@/components/education";
 import { EndorsementPlaceholder } from "@/components/endorsement-placeholder";
 import { ExpertiseGrid } from "@/components/expertise-grid";
 import { Footer } from "@/components/footer";
@@ -30,7 +29,6 @@ export default function Home() {
         <Timeline />
         <CaseStudyCards />
         <ExpertiseGrid />
-        <Education />
         <Publications />
         <SportsImpact />
         <EndorsementPlaceholder />
