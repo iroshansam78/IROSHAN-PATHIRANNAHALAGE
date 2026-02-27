@@ -30,3 +30,40 @@ All editable copy and structured data is under `content/`:
   - `public/images/pentathlon-challenge-2025-podium.jpg`
   - `public/images/pentathlon-challenge-2025-team.jpg`
   - `public/images/pentathlon-challenge-2025-inspection.jpg`
+
+## Contact Form Setup
+
+1. Copy env template:
+
+```bash
+cp .env.example .env.local
+```
+
+2. Configure SMTP values in `.env.local`.
+3. For Gmail, create an App Password and set `SMTP_PASS` to that value.
+4. Restart dev server after updating env values.
+5. Submit the contact form from `/contact` to verify delivery.
+
+Quick local API test:
+
+```bash
+curl -X POST http://localhost:3002/api/contact \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name":"Test User",
+    "organization":"Test Org",
+    "email":"test@example.com",
+    "topic":"Contact API Test",
+    "message":"Testing contact service delivery."
+  }'
+```
+
+## Vercel Deployment (Auto Deploy from GitHub)
+
+1. Go to Vercel and click `Add New...` -> `Project`.
+2. Import repo: `iroshansam78/IROSHAN-PATHIRANNAHALAGE`.
+3. Framework preset: `Next.js` (auto-detected).
+4. Add environment variables from `.env.example` in Vercel Project Settings.
+5. Deploy.
+
+After initial deployment, pushes to `main` trigger automatic production deploys.

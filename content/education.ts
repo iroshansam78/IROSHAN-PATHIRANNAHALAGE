@@ -1,9 +1,5 @@
 export const education = [
-  {
-    award: "MPhil in Engineering",
-    institution: "University of Sri Jayewardenepura, Sri Lanka",
-    year: "In progress"
-  },
+ 
   {
     award: "MSc in Geoinformatics",
     institution: "University of Colombo, Sri Lanka",

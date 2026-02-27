@@ -3,6 +3,10 @@ import "./globals.css";
 import { seo, site } from "@/content/site";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      "https://iroshan-pathirannahalage.vercel.app"
+  ),
   title: "Iroshan Pathirannahalage | Strategic Program Leader in Government & Defence Tech",
   description: site.description,
   keywords: seo.keywords,
@@ -13,7 +17,14 @@ export const metadata: Metadata = {
     title: "Iroshan Pathirannahalage | Strategic Program Leader",
     description: site.description,
     type: "website",
-    url: "/"
+    url: "/",
+    images: ["/opengraph-image"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Iroshan Pathirannahalage | Strategic Program Leader",
+    description: site.description,
+    images: ["/opengraph-image"]
   }
 };
 

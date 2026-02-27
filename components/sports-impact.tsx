@@ -1,6 +1,16 @@
+import fs from "node:fs";
+import path from "node:path";
 import { sportsImpact } from "@/content/sports";
 
 export function SportsImpact() {
+  const imageCards = sportsImpact.images.map((image) => {
+    const filePath = path.join(process.cwd(), "public", image.src);
+    return {
+      ...image,
+      exists: fs.existsSync(filePath)
+    };
+  });
+
   return (
     <section id="sports-impact" className="section-shell py-14 md:py-20">
       <h2 className="section-title">{sportsImpact.title}</h2>
@@ -16,16 +26,24 @@ export function SportsImpact() {
       </ul>
 
       <div className="mt-8 grid gap-5 md:grid-cols-3">
-        {sportsImpact.images.map((image) => (
+        {imageCards.map((image) => (
           <figure
             key={image.src}
             className="overflow-hidden rounded-2xl border border-brand-border bg-white shadow-card"
           >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="h-64 w-full object-cover"
-            />
+            {image.exists ? (
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="h-64 w-full object-cover"
+              />
+            ) : (
+              <div className="flex h-64 w-full items-center justify-center bg-brand-mist p-6 text-center text-sm text-brand-steel">
+                Add image file:
+                <br />
+                <span className="font-mono text-xs text-brand-navy">{`public${image.src}`}</span>
+              </div>
+            )}
           </figure>
         ))}
       </div>
