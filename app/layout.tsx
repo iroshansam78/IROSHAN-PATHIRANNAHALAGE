@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Chatbot } from "@/components/chatbot";
 import { seo, site } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -35,7 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        {children}
+        <Chatbot />
+      </body>
     </html>
   );
 }
