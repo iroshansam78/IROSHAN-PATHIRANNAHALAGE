@@ -21,7 +21,6 @@ export const publications = [
 
 export const leadershipRoles = [
   "Vice President, Sri Lanka Modern Pentathlon Federation (2025-Present)",
-  "Director of Information Technology, Lily Lanka (Pvt) Ltd (2025-Present)",
   "Secretary (Aquatic), Sri Lanka Air Force (2024-Present)"
 ];
 

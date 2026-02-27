@@ -24,5 +24,5 @@ export const heroOptions = [
 
 export const executiveSummary = {
   title: "Trusted by Leadership for High-Stakes Execution",
-  body: "Project and program leader with over 15 years of experience delivering digital systems across government and secure operational environments. Strengths include delivery governance, RAID management, procurement and tender processes, solution architecture oversight, and large-scale onboarding. Track record includes nationwide NEMIS execution and enterprise IT delivery aligned with command-level priorities."
+  body: "Project and program leader with over 15 years of experience delivering digital systems across government and secure operational environments. Strengths include delivery governance, RAID management, procurement and tender processes, solution architecture oversight, and large-scale onboarding."
 };

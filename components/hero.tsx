@@ -12,11 +12,12 @@ export function Hero() {
           <div>
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-white/80">Executive Profile</p>
             <h1 className="mt-4 font-heading text-3xl font-extrabold leading-tight md:text-5xl">{primary.headline}</h1>
+            <p className="mt-4 max-w-4xl text-base text-white/90 md:text-lg">{primary.subheadline}</p>
             <p className="mt-4 max-w-4xl text-base text-white/90 md:text-lg">{site.role}</p>
             <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/90 md:text-base">Project and program leader with 15+ years of delivery across government and secure operational environments.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#contact" className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-navy transition hover:bg-brand-mist">
-                Request a Consultation
+                {primary.cta}
               </a>
               <a href="#case-studies" className="rounded-xl border border-white/60 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
                 View Flagship Work
