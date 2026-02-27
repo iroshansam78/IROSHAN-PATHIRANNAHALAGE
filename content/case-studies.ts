@@ -5,33 +5,14 @@ export type CaseStudy = {
   role: string;
   scale?: string;
   stakeholders: string;
+  outcomes: string[];
+  artifacts: "screenshots_placeholder" | "request_demo";
   approach: string[];
   impact: string[];
   safeNote: string;
 };
 
 export const caseStudies: CaseStudy[] = [
-  {
-    slug: "nemis-national-rollout",
-    title: "National Education Management Information System (NEMIS) Rollout",
-    context:
-      "National modernization initiative to digitize education management workflows and strengthen data-led administration.",
-    role: "Project Manager (2025-Present)",
-    scale: "10,000+ schools; 240,000 teachers; 4.2M students; 15,000 administrative officers",
-    stakeholders:
-      "Ministry leadership, provincial and zonal offices, school leadership teams, vendors, and institutional user communities including parents/guardians.",
-    approach: [
-      "Governance forums and phased rollout controls.",
-      "Readiness checkpoints, onboarding waves, and training enablement.",
-      "Operational support model with implementation risk tracking."
-    ],
-    impact: [
-      "Established national delivery momentum with large-scale onboarding coordination.",
-      "Improved cross-stakeholder alignment on rollout sequencing, scope controls, and change management.",
-      "Strengthened education administration through consistent digital records and reporting readiness."
-    ],
-    safeNote: "Executed in a high-accountability public-sector context without disclosure of sensitive internal details."
-  },
   {
     slug: "enterprise-it-secure-context",
     title: "Enterprise IT & Program Delivery in Secure Environments",
@@ -40,6 +21,12 @@ export const caseStudies: CaseStudy[] = [
     role: "CIO-function enterprise leadership track (2021-2025), strategic planning leadership support (2025-Present)",
     stakeholders:
       "Command-level leadership, operational units, governance and procurement functions, technical teams.",
+    outcomes: [
+      "Improved service uptime and operational readiness.",
+      "Scaled delivery across cross-functional command and technical teams.",
+      "Accelerated delivery with governance controls."
+    ],
+    artifacts: "screenshots_placeholder",
     approach: [
       "Governance-by-design with risk-managed implementation cycles.",
       "Portfolio prioritization aligned to readiness and mission support.",
@@ -59,6 +46,12 @@ export const caseStudies: CaseStudy[] = [
       "Practical use of AI/CV and geospatial analytics for monitoring, anomaly detection patterns, and decision support.",
     role: "Technical and program leadership bridging analytics capability with operational deployment",
     stakeholders: "Operational analysts, leadership decision-makers, technical implementation teams.",
+    outcomes: [
+      "Improved situational awareness for decision support.",
+      "Reduced analysis-to-action cycles in operational workflows.",
+      "Strengthened adoption through policy-aligned implementation."
+    ],
+    artifacts: "request_demo",
     approach: [
       "Problem-led solution framing tied to real workflows.",
       "Model/application fit assessed against policy and operational constraints.",

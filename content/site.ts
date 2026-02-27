@@ -1,6 +1,6 @@
 export const site = {
   name: "Iroshan Pathirannahalage",
-  role: "Vice President | Program Manager | Project Manager | AI & Defence Tech Expert | Strategic IT Leadership",
+  role: "Program & Delivery Leader | Government & Defence Technology | AI/CV & Cyber Enablement",
   headline: "Strategic Program Delivery for Government, Defence, and National-Scale Systems",
   description:
     "Executive profile of Iroshan Pathirannahalage, a strategic program and project leader delivering mission-critical government and defence technology initiatives, including nationwide NEMIS rollout.",

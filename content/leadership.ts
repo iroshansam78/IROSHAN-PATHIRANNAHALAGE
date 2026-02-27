@@ -2,17 +2,20 @@ export const publications = [
   {
     title: "A comprehensive analysis of real-time video anomaly detection methods for human and vehicular movement",
     venue: "Multimedia Tools and Applications (Springer Nature)",
-    year: "2024"
+    year: "2024",
+    url: "https://link.springer.com/"
   },
   {
     title: "Artificial Intelligence (AI): The Game Changer in Modern Warfare",
     venue: "CMETSL",
-    year: "2024"
+    year: "2024",
+    url: ""
   },
   {
     title: "Artificial Intelligence for Forensic Medicine",
     venue: "Medico-Legal Journal of Sri Lanka",
-    year: "2022"
+    year: "2022",
+    url: ""
   }
 ];
 

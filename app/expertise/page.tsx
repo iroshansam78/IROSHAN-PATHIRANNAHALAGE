@@ -6,7 +6,20 @@ import { Navbar } from "@/components/navbar";
 export const metadata: Metadata = {
   title: "Expertise | Program Leadership, AI/Computer Vision, GIS",
   description:
-    "Explore expertise in program governance, mission-critical delivery, AI/computer vision applications, and geospatial decision-support."
+    "Explore expertise in program governance, mission-critical delivery, AI/computer vision applications, and geospatial decision-support.",
+  openGraph: {
+    title: "Expertise | Program Leadership, AI/Computer Vision, GIS",
+    description:
+      "Explore expertise in program governance, mission-critical delivery, AI/computer vision applications, and geospatial decision-support.",
+    images: ["/og-image.png"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Expertise | Program Leadership, AI/Computer Vision, GIS",
+    description:
+      "Explore expertise in program governance, mission-critical delivery, AI/computer vision applications, and geospatial decision-support.",
+    images: ["/og-image.png"]
+  }
 };
 
 export default function ExpertisePage() {

@@ -6,7 +6,20 @@ import { Navbar } from "@/components/navbar";
 export const metadata: Metadata = {
   title: "Contact | Strategic Delivery and Technology Leadership",
   description:
-    "Connect for strategic consultations on government modernization, defence technology programs, and operational AI implementation."
+    "Connect for strategic consultations on government modernization, defence technology programs, and operational AI implementation.",
+  openGraph: {
+    title: "Contact | Strategic Delivery and Technology Leadership",
+    description:
+      "Connect for strategic consultations on government modernization, defence technology programs, and operational AI implementation.",
+    images: ["/og-image.png"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact | Strategic Delivery and Technology Leadership",
+    description:
+      "Connect for strategic consultations on government modernization, defence technology programs, and operational AI implementation.",
+    images: ["/og-image.png"]
+  }
 };
 
 export default function ContactPage() {

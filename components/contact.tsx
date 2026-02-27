@@ -6,20 +6,20 @@ import { site } from "@/content/site";
 
 type FormState = {
   name: string;
-  organization: string;
   email: string;
-  topic: string;
   message: string;
+  requestCall: boolean;
+  phone: string;
 };
 
 export function Contact() {
   const initialState = useMemo<FormState>(
     () => ({
       name: "",
-      organization: "",
       email: "",
-      topic: "",
-      message: ""
+      message: "",
+      requestCall: false,
+      phone: ""
     }),
     []
   );
@@ -80,7 +80,6 @@ export function Contact() {
           <p>
             Email: <a className="font-medium text-brand-navy hover:underline" href={`mailto:${site.email}`}>{site.email}</a>
           </p>
-          <p>Phone: {site.phone}</p>
         </div>
 
         <form onSubmit={handleSubmit} className="mt-7 grid gap-4 md:grid-cols-2">
@@ -97,21 +96,6 @@ export function Contact() {
             />
           </label>
           <label className="text-sm text-brand-ink">
-            Organization
-            <input
-              className="mt-1 w-full rounded-xl border border-brand-border px-4 py-3 text-sm outline-none focus:border-brand-teal"
-              type="text"
-              value={form.organization}
-              onChange={(event) =>
-                setForm((prev) => ({
-                  ...prev,
-                  organization: event.target.value
-                }))
-              }
-              required
-            />
-          </label>
-          <label className="text-sm text-brand-ink">
             Work Email
             <input
               className="mt-1 w-full rounded-xl border border-brand-border px-4 py-3 text-sm outline-none focus:border-brand-teal"
@@ -119,18 +103,6 @@ export function Contact() {
               value={form.email}
               onChange={(event) =>
                 setForm((prev) => ({ ...prev, email: event.target.value }))
-              }
-              required
-            />
-          </label>
-          <label className="text-sm text-brand-ink">
-            Topic
-            <input
-              className="mt-1 w-full rounded-xl border border-brand-border px-4 py-3 text-sm outline-none focus:border-brand-teal"
-              type="text"
-              value={form.topic}
-              onChange={(event) =>
-                setForm((prev) => ({ ...prev, topic: event.target.value }))
               }
               required
             />
@@ -146,6 +118,33 @@ export function Contact() {
               required
             />
           </label>
+          <label className="flex items-center gap-2 text-sm text-brand-ink md:col-span-2">
+            <input
+              type="checkbox"
+              checked={form.requestCall}
+              onChange={(event) =>
+                setForm((prev) => ({
+                  ...prev,
+                  requestCall: event.target.checked
+                }))
+              }
+            />
+            Request a call
+          </label>
+          {form.requestCall ? (
+            <label className="text-sm text-brand-ink md:col-span-2">
+              Preferred Contact Number (optional)
+              <input
+                className="mt-1 w-full rounded-xl border border-brand-border px-4 py-3 text-sm outline-none focus:border-brand-teal"
+                type="tel"
+                value={form.phone}
+                onChange={(event) =>
+                  setForm((prev) => ({ ...prev, phone: event.target.value }))
+                }
+                placeholder="+94 ..."
+              />
+            </label>
+          ) : null}
 
           <div className="md:col-span-2 flex flex-wrap gap-3">
             <button

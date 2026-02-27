@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 import { caseStudies } from "@/content/case-studies";
@@ -6,7 +7,20 @@ import { caseStudies } from "@/content/case-studies";
 export const metadata: Metadata = {
   title: "Case Studies | NEMIS Rollout, Secure IT Delivery, Applied AI/GIS",
   description:
-    "Read case studies on national education system rollout, secure enterprise IT modernization, and applied AI/GIS decision-support outcomes."
+    "Read case studies on national education system rollout, secure enterprise IT modernization, and applied AI/GIS decision-support outcomes.",
+  openGraph: {
+    title: "Case Studies | NEMIS Rollout, Secure IT Delivery, Applied AI/GIS",
+    description:
+      "Read case studies on national education system rollout, secure enterprise IT modernization, and applied AI/GIS decision-support outcomes.",
+    images: ["/og-image.png"]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Case Studies | NEMIS Rollout, Secure IT Delivery, Applied AI/GIS",
+    description:
+      "Read case studies on national education system rollout, secure enterprise IT modernization, and applied AI/GIS decision-support outcomes.",
+    images: ["/og-image.png"]
+  }
 };
 
 export default function CaseStudiesPage() {
@@ -38,6 +52,9 @@ export default function CaseStudiesPage() {
                   <li key={item}>{item}</li>
                 ))}
               </ul>
+              <Link href={`/case-studies/${study.slug}`} className="mt-5 inline-block text-sm font-semibold text-brand-teal hover:underline">
+                View details
+              </Link>
               <p className="mt-5 text-xs text-brand-steel">{study.safeNote}</p>
             </article>
           ))}

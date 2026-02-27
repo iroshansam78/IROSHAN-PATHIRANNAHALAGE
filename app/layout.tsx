@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     description: site.description,
     type: "website",
     url: "/",
-    images: ["/opengraph-image"]
+    images: ["/og-image.png"]
   },
   twitter: {
     card: "summary_large_image",
     title: "Iroshan Pathirannahalage | Strategic Program Leader",
     description: site.description,
-    images: ["/opengraph-image"]
+    images: ["/og-image.png"]
   }
 };
 

@@ -16,6 +16,13 @@ body {
   @apply bg-brand-mist text-brand-ink font-sans;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  @apply outline-none ring-2 ring-brand-teal ring-offset-2 ring-offset-white;
+}
+
 .section-shell {
   @apply mx-auto w-full max-w-6xl px-5 md:px-8;
 }

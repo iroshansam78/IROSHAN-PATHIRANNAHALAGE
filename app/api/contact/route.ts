@@ -3,17 +3,15 @@ import { NextResponse } from "next/server";
 
 type ContactPayload = {
   name: string;
-  organization: string;
   email: string;
-  topic: string;
   message: string;
+  requestCall?: boolean;
+  phone?: string;
 };
 
 const REQUIRED_FIELDS: (keyof ContactPayload)[] = [
   "name",
-  "organization",
   "email",
-  "topic",
   "message"
 ];
 
@@ -78,11 +76,14 @@ export async function POST(request: Request) {
       }
     });
 
+    const phone =
+      typeof payload.phone === "string" ? payload.phone.trim() : "";
+
     const textBody = [
       `Name: ${sanitize(payload.name!)}`,
-      `Organization: ${sanitize(payload.organization!)}`,
       `Work Email: ${email}`,
-      `Topic: ${sanitize(payload.topic!)}`,
+      `Request a call: ${payload.requestCall ? "Yes" : "No"}`,
+      `Preferred number: ${phone.length > 0 ? sanitize(phone) : "Not provided"}`,
       "",
       "Message:",
       payload.message!.trim()
@@ -92,7 +93,7 @@ export async function POST(request: Request) {
       from,
       to,
       replyTo: email,
-      subject: `[Website Contact] ${sanitize(payload.topic!)}`,
+      subject: `[Website Contact] ${sanitize(payload.name!)}`,
       text: textBody
     });
 

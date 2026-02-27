@@ -11,7 +11,13 @@ export function Publications() {
           <ul className="mt-3 space-y-3 text-sm text-brand-ink">
             {publications.map((pub) => (
               <li key={pub.title}>
-                <p className="font-medium text-brand-navy">{pub.title}</p>
+                {pub.url ? (
+                  <a href={pub.url} target="_blank" rel="noreferrer" className="font-medium text-brand-navy hover:underline">
+                    {pub.title} <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  <p className="font-medium text-brand-navy">{pub.title}</p>
+                )}
                 <p className="text-brand-steel">{pub.venue} | {pub.year}</p>
               </li>
             ))}

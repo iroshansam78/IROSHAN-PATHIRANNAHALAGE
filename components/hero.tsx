@@ -16,10 +16,10 @@ export function Hero() {
             <p className="mt-5 max-w-3xl text-sm leading-relaxed text-white/90 md:text-base">Project and program leader with 15+ years of delivery across government and secure operational environments.</p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a href="#contact" className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-brand-navy transition hover:bg-brand-mist">
-                {primary.cta}
+                Request a Consultation
               </a>
-              <a href={site.linkedin} target="_blank" rel="noreferrer" className="rounded-xl border border-white/60 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
-                View LinkedIn Profile
+              <a href="#case-studies" className="rounded-xl border border-white/60 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/10">
+                View Flagship Work
               </a>
             </div>
           </div>
