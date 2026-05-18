@@ -28,7 +28,7 @@ function fallbackReply(input: string): string {
     return "His technical scope includes applied AI/computer vision and GIS/remote sensing for operational decision support.";
   }
   if (text.includes("sport") || text.includes("pentathlon")) {
-    return "As Vice President of the Sri Lanka Modern Pentathlon Federation, he supported the National Pentathlon Challenge 2025 and represented Sri Lanka as a Team Official at the UIPM Pentathlon World Championship in Egypt.";
+    return "He has contributed to sports leadership through international and national engagements, including serving as part of the Sri Lanka delegation for the UIPM 2026 Pentathlon World Cup in Cairo, Egypt.";
   }
   if (text.includes("contact") || text.includes("email") || text.includes("reach")) {
     return "Use the website contact form or LinkedIn. Typical response time is within 1-2 business days.";
@@ -48,7 +48,7 @@ Key profile facts:
 - Enterprise IT/CIO-function and command-level delivery experience in secure mission-critical environments (Sri Lanka Air Force).
 - Experience includes governance, RAID management, procurement and tender support, architecture oversight, and operational readiness.
 - AI/CV and GIS/Remote Sensing expertise applied for operational decision support.
-- Leadership: Vice President, Sri Lanka Modern Pentathlon Federation; supported National Pentathlon Challenge 2025; represented Sri Lanka as a Team Official at the UIPM Pentathlon World Championship in Egypt.
+- Leadership: sports leadership through international and national level engagements, including serving as part of the Sri Lanka delegation for the UIPM 2026 Pentathlon World Cup, Cairo, Egypt, and supporting national sports programmes, team preparations, inter-unit/inter-service competitions, and athlete development activities.
 - Contact: use website contact form or LinkedIn profile.
 
 Safety constraints:

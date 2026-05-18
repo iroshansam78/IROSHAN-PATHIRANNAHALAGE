@@ -1,13 +1,11 @@
 export const sportsImpact = {
   title: "Sports Leadership Impact",
-  subtitle: "National Pentathlon Challenge 2025",
-  summary:
-    "As Vice President of the Sri Lanka Modern Pentathlon Federation, provided national-level sports uplift support to plan and conduct the National Pentathlon Challenge 2025, coordinating stakeholders, event readiness, and execution support.",
-  highlights: [
-    "Supported end-to-end event coordination with federation and partner stakeholders.",
-    "Represented Sri Lanka as a Team Official at the UIPM Pentathlon World Championship in Egypt, supporting athlete coordination, team administration, and international event participation.",
-    "Strengthened national visibility of modern pentathlon through structured execution support.",
-    "Enabled operational readiness across venue, officials, athletes, and event workflows."
+  subtitle: "International and National Sports Engagements",
+  paragraphs: [
+    "I have contributed to sports leadership through international and national level engagements, with a strong focus on team coordination, discipline, performance, and national representation.",
+    "At the international level, I served as part of the Sri Lanka delegation for the UIPM 2026 Pentathlon World Cup, Cairo, Egypt, supporting athletes and officials through effective coordination and administrative leadership.",
+    "At the national level, I have been involved in organising and supporting national sports programmes, team preparations, inter-unit/inter-service competitions, and athlete development activities.",
+    "These engagements have strengthened my leadership, communication, coordination, and decision-making skills while promoting commitment, teamwork, resilience, and national pride."
   ],
   images: [
     {
